@@ -18,7 +18,7 @@ extern "C" {
      
 //DRV8830 レジスタ01
 typedef union {
-    uint8_t DRV8830Reg1Byte;
+    uint8_t byte;
     struct {
         unsigned IN1     :1;// 0:0 Standby/coast 0:1 Reverse 
         unsigned IN2     :1;// 1:0 Forward      1:1 Brake
@@ -27,7 +27,7 @@ typedef union {
 } DRV8830Reg1;
 //DRV8830 レジスタ02
 typedef union {
-    uint8_t DRV8830Reg2Byte;
+    uint8_t byte;
 
     struct {
         unsigned FAULT   :1;//FALT bit
