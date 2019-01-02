@@ -1,0 +1,2 @@
+# magneticstaller
+マグネティックステーラーのPIC16F1508コード
