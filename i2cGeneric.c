@@ -40,6 +40,7 @@ void i2cRegisterWrite1Byte(uint16_t slaveaddr, uint8_t regaddr ,uint8_t data){
 
 void i2cRead(uint16_t slaveaddr, uint8_t wcount,uint8_t* pwData,uint8_t icount,uint8_t* pData, I2C_MESSAGE_STATUS* status){
     
+    *status = I2C_MESSAGE_PENDING;
     uint8_t timeOut = 0;
 
     while(*status != I2C_MESSAGE_FAIL){
@@ -82,6 +83,8 @@ void i2cRead(uint16_t slaveaddr, uint8_t wcount,uint8_t* pwData,uint8_t icount,u
 bool i2cRegisterRead1Byte(uint16_t slaveaddr, uint8_t regaddr, uint8_t* pData){
     I2C_MESSAGE_STATUS status;
     uint8_t     writeBuffer[1];
+    
+    writeBuffer[0] = regaddr;
     
     i2cRead(slaveaddr,1,writeBuffer,1,pData, &status);
 

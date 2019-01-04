@@ -1,0 +1,54 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"21 ./i2cGeneric.h
+[; ;./i2cGeneric.h: 21: extern _Bool i2cRegisterRead1Byte(uint16_t slaveaddr, uint8_t regaddr, uint8_t* pData);
+[v _i2cRegisterRead1Byte `(a ~T0 @X0 0 ef3`us`uc`*uc ]
+"32 ./Varient.h
+[; ;./Varient.h: 32: extern volatile int8_t iHeaterTemp;
+[v _iHeaterTemp `Vc ~T0 @X0 0 e ]
+"5 i2cTherm.c
+[; ;i2cTherm.c: 5: const uint16_t stts751addr = 0x72;
+[v _stts751addr `Cus ~T0 @X0 1 e ]
+[i _stts751addr
+-> -> 114 `i `us
+]
+"6
+[; ;i2cTherm.c: 6: const uint8_t tempHighreg = 0x00;
+[v _tempHighreg `Cuc ~T0 @X0 1 e ]
+[i _tempHighreg
+-> -> 0 `i `uc
+]
+"7
+[; ;i2cTherm.c: 7: const uint8_t tempLowreg = 0x02;
+[v _tempLowreg `Cuc ~T0 @X0 1 e ]
+[i _tempLowreg
+-> -> 2 `i `uc
+]
+"10
+[; ;i2cTherm.c: 10: int8_t getTemp(void){
+[v _getTemp `(c ~T0 @X0 1 ef ]
+{
+[e :U _getTemp ]
+[f ]
+"11
+[; ;i2cTherm.c: 11:     uint8_t temp = 0;
+[v _temp `uc ~T0 @X0 1 a ]
+[e = _temp -> -> 0 `i `uc ]
+"13
+[; ;i2cTherm.c: 13:     if(i2cRegisterRead1Byte(stts751addr, tempHighreg, &temp)){
+[e $ ! != -> ( _i2cRegisterRead1Byte (3 , , _stts751addr _tempHighreg &U _temp `i -> 0 `i 2  ]
+{
+"14
+[; ;i2cTherm.c: 14:         iHeaterTemp = temp;
+[e = _iHeaterTemp -> _temp `c ]
+"15
+[; ;i2cTherm.c: 15:     }
+}
+[e :U 2 ]
+"16
+[; ;i2cTherm.c: 16:     return (int8_t)temp;
+[e ) -> _temp `c ]
+[e $UE 1  ]
+"18
+[; ;i2cTherm.c: 18: }
+[e :UE 1 ]
+}

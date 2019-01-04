@@ -1,0 +1,151 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"22 ./i2cMotor.h
+[; ;./i2cMotor.h: 22:     struct {
+[s S2 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S2 . IN1 IN2 VSET ]
+"20
+[; ;./i2cMotor.h: 20: typedef union {
+[u S1 `uc 1 `S2 1 ]
+[n S1 . byte . ]
+"20 ./i2cGeneric.h
+[; ;./i2cGeneric.h: 20: extern void i2cRegisterWrite1Byte(uint16_t slaveaddr, uint8_t regaddr ,uint8_t data);
+[v _i2cRegisterWrite1Byte `(v ~T0 @X0 0 ef3`us`uc`uc ]
+"32 ./i2cMotor.h
+[; ;./i2cMotor.h: 32:     struct {
+[s S4 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S4 . FAULT OCP UVLO OTS ILIMIT RESERVE CLEAR ]
+"29
+[; ;./i2cMotor.h: 29: typedef union {
+[u S3 `uc 1 `S4 1 ]
+[n S3 . byte . ]
+"27 ./Varient.h
+[; ;./Varient.h: 27: extern volatile int16_t iPWMMotor;
+[v _iPWMMotor `Vs ~T0 @X0 0 e ]
+"30
+[; ;./Varient.h: 30: extern volatile uint8_t sMotor;
+[v _sMotor `Vuc ~T0 @X0 0 e ]
+"21 ./i2cGeneric.h
+[; ;./i2cGeneric.h: 21: extern _Bool i2cRegisterRead1Byte(uint16_t slaveaddr, uint8_t regaddr, uint8_t* pData);
+[v _i2cRegisterRead1Byte `(a ~T0 @X0 0 ef3`us`uc`*uc ]
+"8 i2cMotor.c
+[; ;i2cMotor.c: 8: void zeroMotorParam(void){
+[v _zeroMotorParam `(v ~T0 @X0 1 ef ]
+{
+[e :U _zeroMotorParam ]
+[f ]
+"9
+[; ;i2cMotor.c: 9:     DRV8830Reg1 reg1;
+[v _reg1 `S1 ~T0 @X0 1 a ]
+"10
+[; ;i2cMotor.c: 10:     reg1.IN1 = 0;
+[e = . . _reg1 1 0 -> -> 0 `i `uc ]
+"11
+[; ;i2cMotor.c: 11:     reg1.IN2 = 0;
+[e = . . _reg1 1 1 -> -> 0 `i `uc ]
+"12
+[; ;i2cMotor.c: 12:     reg1.VSET = (6&0x3F);
+[e = . . _reg1 1 2 -> & -> 6 `i -> 63 `i `uc ]
+"14
+[; ;i2cMotor.c: 14:     i2cRegisterWrite1Byte(0xC0,0,reg1.byte);
+[e ( _i2cRegisterWrite1Byte (3 , , -> -> 192 `i `us -> -> 0 `i `uc . _reg1 0 ]
+"16
+[; ;i2cMotor.c: 16:     DRV8830Reg2 reg2;
+[v _reg2 `S3 ~T0 @X0 1 a ]
+"17
+[; ;i2cMotor.c: 17:     reg2.CLEAR = 1;
+[e = . . _reg2 1 6 -> -> 1 `i `uc ]
+"18
+[; ;i2cMotor.c: 18:     i2cRegisterWrite1Byte(0xC0,1,reg2.byte);
+[e ( _i2cRegisterWrite1Byte (3 , , -> -> 192 `i `us -> -> 1 `i `uc . _reg2 0 ]
+"20
+[; ;i2cMotor.c: 20: }
+[e :UE 5 ]
+}
+"22
+[; ;i2cMotor.c: 22: void SetMotorSpeed(void){
+[v _SetMotorSpeed `(v ~T0 @X0 1 ef ]
+{
+[e :U _SetMotorSpeed ]
+[f ]
+"24
+[; ;i2cMotor.c: 24:     if(iPWMMotor == 6){
+[e $ ! == -> _iPWMMotor `i -> 6 `i 7  ]
+{
+"25
+[; ;i2cMotor.c: 25:         zeroMotorParam();
+[e ( _zeroMotorParam ..  ]
+"26
+[; ;i2cMotor.c: 26:     }else{
+}
+[e $U 8  ]
+[e :U 7 ]
+{
+"27
+[; ;i2cMotor.c: 27:         if(!sMotor){
+[e $ ! ! != -> _sMotor `i -> 0 `i 9  ]
+{
+"28
+[; ;i2cMotor.c: 28:             DRV8830Reg1 reg1;
+[v _reg1 `S1 ~T0 @X0 1 a ]
+"29
+[; ;i2cMotor.c: 29:             reg1.IN1 = 1;
+[e = . . _reg1 1 0 -> -> 1 `i `uc ]
+"30
+[; ;i2cMotor.c: 30:             reg1.IN2 = 0;
+[e = . . _reg1 1 1 -> -> 0 `i `uc ]
+"31
+[; ;i2cMotor.c: 31:             reg1.VSET = (iPWMMotor&0x3F);
+[e = . . _reg1 1 2 -> & -> _iPWMMotor `i -> 63 `i `uc ]
+"33
+[; ;i2cMotor.c: 33:             i2cRegisterWrite1Byte(0xC0,0,reg1.byte);
+[e ( _i2cRegisterWrite1Byte (3 , , -> -> 192 `i `us -> -> 0 `i `uc . _reg1 0 ]
+"34
+[; ;i2cMotor.c: 34:         }
+}
+[e :U 9 ]
+"35
+[; ;i2cMotor.c: 35:     }
+}
+[e :U 8 ]
+"36
+[; ;i2cMotor.c: 36: }
+[e :UE 6 ]
+}
+"38
+[; ;i2cMotor.c: 38: void GetFaultState(void){
+[v _GetFaultState `(v ~T0 @X0 1 ef ]
+{
+[e :U _GetFaultState ]
+[f ]
+"40
+[; ;i2cMotor.c: 40:     DRV8830Reg2 reg2;
+[v _reg2 `S3 ~T0 @X0 1 a ]
+"41
+[; ;i2cMotor.c: 41:     _Bool rtn;
+[v _rtn `a ~T0 @X0 1 a ]
+"43
+[; ;i2cMotor.c: 43:     rtn = i2cRegisterRead1Byte(0xC0,1,&(reg2.byte));
+[e = _rtn ( _i2cRegisterRead1Byte (3 , , -> -> 192 `i `us -> -> 1 `i `uc &U . _reg2 0 ]
+"44
+[; ;i2cMotor.c: 44:     if(rtn && reg2.byte){
+[e $ ! && != -> _rtn `i -> 0 `i != -> . _reg2 0 `i -> 0 `i 11  ]
+{
+"45
+[; ;i2cMotor.c: 45:         if(reg2.FAULT){
+[e $ ! != -> . . _reg2 1 0 `i -> 0 `i 12  ]
+{
+"46
+[; ;i2cMotor.c: 46:             sMotor = reg2.byte;
+[e = _sMotor . _reg2 0 ]
+"47
+[; ;i2cMotor.c: 47:         }
+}
+[e :U 12 ]
+"48
+[; ;i2cMotor.c: 48:     }
+}
+[e :U 11 ]
+"49
+[; ;i2cMotor.c: 49: }
+[e :UE 10 ]
+}

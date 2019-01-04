@@ -18,9 +18,9 @@ extern "C" {
 
 
 // ロータリエンコーダーの割り込みの初期化
-extern void InitializeRE(void);
+extern void RE_Initialize(void);
 //モーターPWMの反映
-extern void SetPWMMorter(void);
+extern void SetPWMMorter(void);//LEDのみ
 //ヒーターPWMの反映
 extern void SetPWMHeater(void);
 

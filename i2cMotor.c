@@ -1,15 +1,15 @@
 #include "Varient.h"
 #include "i2cGeneric.h"
-#include "i2cMorter.h"
+#include "i2cMotor.h"
 
 #define drv8830addr_w 0xC0
 #define drv8830addr_r 0xC1
 
-void InitializeMoterParam(void){
+void zeroMotorParam(void){
     DRV8830Reg1 reg1;
     reg1.IN1 = 0;
     reg1.IN2 = 0;// Standby
-    reg1.VSET = (iPWMMorterMin&0x3F);
+    reg1.VSET = (iPWMMotorMin&0x3F);
 
     i2cRegisterWrite1Byte(drv8830addr_w,0,reg1.byte);
     
@@ -19,16 +19,16 @@ void InitializeMoterParam(void){
 
 }
 
-void SetMoterSpeed(void){
+void SetMotorSpeed(void){
     
-    if(iPWMMorter == 0){
-        InitializeMoterParam();
+    if(iPWMMotor == iPWMMotorMin){
+        zeroMotorParam();
     }else{
-        if(!sMorter){
+        if(!sMotor){
             DRV8830Reg1 reg1;
             reg1.IN1 = 1;
             reg1.IN2 = 0;// Forward
-            reg1.VSET = (iPWMMorter&0x3F); //
+            reg1.VSET = (iPWMMotor&0x3F); //
 
             i2cRegisterWrite1Byte(drv8830addr_w,0,reg1.byte);           
         }
@@ -41,9 +41,9 @@ void GetFaultState(void){
     bool rtn;
 
     rtn = i2cRegisterRead1Byte(drv8830addr_w,1,&(reg2.byte));
-    if(rtn && reg2.DRV8830Reg2Byte){
+    if(rtn && reg2.byte){
         if(reg2.FAULT){
-            sMorter = reg2.DRV8830Reg2Byte;
+            sMotor = reg2.byte;
         }
     }
 }

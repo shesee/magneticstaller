@@ -23,9 +23,9 @@ int8_t readRE2(void){
 
 //ロータリエンコーダー1をモーターPWMの値に変換
 void cbRE1(void){   
-    iPWMMorter += readRE1();
-    if(iPWMMorter > iPWMMorterMax)iPWMMorter = iPWMMorterMax;
-    if(iPWMMorter < iPWMMorterMin)iPWMMorter=iPWMMorterMin;    
+    iPWMMotor += readRE1();
+    if(iPWMMotor > iPWMMotorMax)iPWMMotor = iPWMMotorMax;
+    if(iPWMMotor < iPWMMotorMin)iPWMMotor=iPWMMotorMin;    
 };
 
 //ロータリエンコーダー2をヒーターPWMの値に変換
@@ -53,26 +53,22 @@ void IOCBF7_CustumInterruptHandler(void){
 };
 
 //
-void InitializeRE(void){
+void RE_Initialize(void){
     
     IOCAF4_SetInterruptHandler(IOCAF4_CustumInterruptHandler);
     IOCAF5_SetInterruptHandler(IOCAF5_CustumInterruptHandler);
     IOCBF5_SetInterruptHandler(IOCBF5_CustumInterruptHandler);
     IOCBF7_SetInterruptHandler(IOCBF7_CustumInterruptHandler);
-    SetPWMMorter();
-    SetPWMHeater();
-    
-      
 };
 
 void SetPWMMorter(void){
     //ロータリーエンコーダーのLEDの制御
-    if(iPWMMorter == 0){
+    if(iPWMMotor == iPWMMotorMin){
         RE1LED_SetHigh();// ON OFF LED
         PWM2_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
         RE1LED_SetLow();//OFF OFF LED
-        PWM2_LoadDutyValue((uint16_t)iPWMMorter);//Set ON LED Duty to value
+        PWM2_LoadDutyValue((uint16_t)iPWMMotor);//Set ON LED Duty to value
     };
     //TODO
 };
@@ -87,5 +83,5 @@ void SetPWMHeater(void){
         PWM4_LoadDutyValue((uint16_t)(iPWMHeater));//Set ON LED Duty to value
     };
     
-     PWM1_LoadDutyValue(iPWMHeater);
+    PWM1_LoadDutyValue(iPWMHeater);
 };

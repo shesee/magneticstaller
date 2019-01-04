@@ -1,0 +1,37 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 Varient.c
+[; ;Varient.c: 3: volatile int16_t iPWMMotor = 6;
+[v _iPWMMotor `Vs ~T0 @X0 1 e ]
+[i _iPWMMotor
+-> -> 6 `i `s
+]
+"4
+[; ;Varient.c: 4: volatile int16_t iPWMHeater = 0;
+[v _iPWMHeater `Vs ~T0 @X0 1 e ]
+[i _iPWMHeater
+-> -> 0 `i `s
+]
+"6
+[; ;Varient.c: 6: volatile int8_t iHeaterTemp = 0;;
+[v _iHeaterTemp `Vc ~T0 @X0 1 e ]
+[i _iHeaterTemp
+-> -> 0 `i `c
+]
+"7
+[; ;Varient.c: 7: volatile uint8_t iMotorRotateCnt = 0;
+[v _iMotorRotateCnt `Vuc ~T0 @X0 1 e ]
+[i _iMotorRotateCnt
+-> -> 0 `i `uc
+]
+"8
+[; ;Varient.c: 8: volatile uint16_t iMotorRotate = 0;
+[v _iMotorRotate `Vus ~T0 @X0 1 e ]
+[i _iMotorRotate
+-> -> 0 `i `us
+]
+"10
+[; ;Varient.c: 10: volatile uint8_t sMotor = 0;
+[v _sMotor `Vuc ~T0 @X0 1 e ]
+[i _sMotor
+-> -> 0 `i `uc
+]

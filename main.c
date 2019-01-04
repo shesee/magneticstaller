@@ -42,10 +42,14 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "mcc_generated_files/i2c.h"
 #include "Varient.h"
 #include "rtEnc.h"
-#include "mcc_generated_files/i2c.h"
-#include "i2cMorter.h"
+#include "timer0Handler.h"
+#include "rpmHole.h"
+#include "i2cMotor.h"
+#include "i2cTherm.h"
+#include "i2cLCD.h"
 
 /*
                          Main application
@@ -54,20 +58,36 @@ void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-
+    
+    //ホール素子検出の初期化
+    Hole_Initialize();
+    
+    //Timer 0 WDT初期化 回転数計算
+    tmr0Handler_Initialize();
+    
+    //ロータリーエンコーダーの初期化
+    RE_Initialize();
+    
+    //PWM デューティー比の初期設定
+    SetPWMMorter();
+    SetPWMHeater();
+    
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
-    //ロータリーエンコーダーの初期化
-    InitializeRE();
-    
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
 
     //Enable the Peripheral Interrupts      
     INTERRUPT_PeripheralInterruptEnable();
-    //I2Cの初期化
-    I2C_Initialize();
-    InitializeMoterParam();
+ 
+    //モーターを初期状態に
+    zeroMotorParam();
+    
+    //温度の初期値を読みこむ
+    if(!getTemp())iHeaterTemp=20;
+    
+    //LCD初期化
+
     
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -75,9 +95,20 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
-    while (1)
-    {
-        // Add your application code
+    while (1){
+        uint8_t temp;
+        
+        if(!FAIL_PORT){
+            GetFaultState();
+        }
+        if(!sMotor)SetMotorSpeed();
+        
+        temp = getTemp();
+        
+        //LCD表示
+        
+        __delay_ms(200);
+        
     }
 }
 /**

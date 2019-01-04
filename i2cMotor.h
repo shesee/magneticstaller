@@ -40,8 +40,8 @@ typedef union {
     };
 } DRV8830Reg2;
 
-extern void InitializeMoterParam(void);//モーターの初期化
-extern void SetMoterSpeed(void);//モータースピードの設定
+extern void zeroMotorParam(void);//モーターの初期化
+extern void SetMotorSpeed(void);//モータースピードの設定
 void GetFaultState(void);//フォルト状態の取得
 
 #ifdef	__cplusplus

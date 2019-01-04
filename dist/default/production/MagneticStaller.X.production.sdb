@@ -1,0 +1,1071 @@
+[p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1508 ]
+[d frameptr 6 ]
+"185 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[e E3475 . `uc
+I2C_MESSAGE_COMPLETE 0
+I2C_MESSAGE_FAIL 1
+I2C_MESSAGE_PENDING 2
+I2C_STUCK_START 3
+I2C_MESSAGE_ADDRESS_NO_ACK 4
+I2C_DATA_NO_ACK 5
+I2C_LOST_STATE 6
+]
+"187
+[e E3538 . `uc
+S_MASTER_IDLE 0
+S_MASTER_RESTART 1
+S_MASTER_SEND_ADDR 2
+S_MASTER_SEND_DATA 3
+S_MASTER_SEND_STOP 4
+S_MASTER_ACK_ADDR 5
+S_MASTER_RCV_DATA 6
+S_MASTER_RCV_STOP 7
+S_MASTER_ACK_RCV_DATA 8
+S_MASTER_NOACK_STOP 9
+S_MASTER_SEND_ADDR_10BIT_LSB 10
+S_MASTER_10BIT_RESTART 11
+]
+"5 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cGeneric.c
+[e E3475 . `uc
+I2C_MESSAGE_COMPLETE 0
+I2C_MESSAGE_FAIL 1
+I2C_MESSAGE_PENDING 2
+I2C_STUCK_START 3
+I2C_MESSAGE_ADDRESS_NO_ACK 4
+I2C_DATA_NO_ACK 5
+I2C_LOST_STATE 6
+]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"5 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cGeneric.c
+[v _i2cWrite i2cWrite `(v  1 e 1 0 ]
+"29
+[v _i2cRegisterWrite1Byte i2cRegisterWrite1Byte `(v  1 e 1 0 ]
+"41
+[v _i2cRead i2cRead `(v  1 e 1 0 ]
+"82
+[v _i2cRegisterRead1Byte i2cRegisterRead1Byte `(a  1 e 1 0 ]
+"8 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cMotor.c
+[v _zeroMotorParam zeroMotorParam `(v  1 e 1 0 ]
+"22
+[v _SetMotorSpeed SetMotorSpeed `(v  1 e 1 0 ]
+"38
+[v _GetFaultState GetFaultState `(v  1 e 1 0 ]
+"10 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cTherm.c
+[v _getTemp getTemp `(c  1 e 1 0 ]
+"57 C:\Users\blood\MPLABXProjects\MagneticStaller.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"32 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _INT_ISR INT_ISR `(v  1 e 1 0 ]
+"41
+[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
+"50
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+"54
+[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
+"59
+[v _EXT_INT_Initialize EXT_INT_Initialize `(v  1 e 1 0 ]
+"198 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
+"235
+[v _I2C_ISR I2C_ISR `(v  1 e 1 0 ]
+"565
+[v _I2C_FunctionComplete I2C_FunctionComplete `(v  1 e 1 0 ]
+"583
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"600
+[v _I2C_MasterWrite I2C_MasterWrite `(v  1 e 1 0 ]
+"621
+[v _I2C_MasterRead I2C_MasterRead `(v  1 e 1 0 ]
+"644
+[v _I2C_WaitForLastPacketToComplete I2C_WaitForLastPacketToComplete `T(v  1 e 1 0 ]
+"654
+[v _I2C_MasterTRBInsert I2C_MasterTRBInsert `(v  1 e 1 0 ]
+"708
+[v _I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
+"721
+[v _I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
+"742
+[v _I2C_BusCollisionISR I2C_BusCollisionISR `(v  1 e 1 0 ]
+"52 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"50 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"65
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"73
+[v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
+"63 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"141
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+"168
+[v _IOCAF4_ISR IOCAF4_ISR `(v  1 e 1 0 ]
+"183
+[v _IOCAF4_SetInterruptHandler IOCAF4_SetInterruptHandler `(v  1 e 1 0 ]
+"190
+[v _IOCAF4_DefaultInterruptHandler IOCAF4_DefaultInterruptHandler `(v  1 e 1 0 ]
+"198
+[v _IOCAF5_ISR IOCAF5_ISR `(v  1 e 1 0 ]
+"213
+[v _IOCAF5_SetInterruptHandler IOCAF5_SetInterruptHandler `(v  1 e 1 0 ]
+"220
+[v _IOCAF5_DefaultInterruptHandler IOCAF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+"228
+[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
+"243
+[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
+"250
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+"258
+[v _IOCBF7_ISR IOCBF7_ISR `(v  1 e 1 0 ]
+"273
+[v _IOCBF7_SetInterruptHandler IOCBF7_SetInterruptHandler `(v  1 e 1 0 ]
+"280
+[v _IOCBF7_DefaultInterruptHandler IOCBF7_DefaultInterruptHandler `(v  1 e 1 0 ]
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm1.c
+[v _PWM1_Initialize PWM1_Initialize `(v  1 e 1 0 ]
+"72
+[v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm2.c
+[v _PWM2_Initialize PWM2_Initialize `(v  1 e 1 0 ]
+"72
+[v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm4.c
+[v _PWM4_Initialize PWM4_Initialize `(v  1 e 1 0 ]
+"72
+[v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
+"64 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"108
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"130
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+"140
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+"144
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"62 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"6 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rpmHole.c
+[v _INTCustumInterruptHandler INTCustumInterruptHandler `(v  1 e 1 0 ]
+"13
+[v _Hole_Initialize Hole_Initialize `(v  1 e 1 0 ]
+"14 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _readRE1 readRE1 `(c  1 e 1 0 ]
+"19
+[v _readRE2 readRE2 `(c  1 e 1 0 ]
+"25
+[v _cbRE1 cbRE1 `(v  1 e 1 0 ]
+"32
+[v _cbRE2 cbRE2 `(v  1 e 1 0 ]
+"39
+[v _IOCAF4_CustumInterruptHandler IOCAF4_CustumInterruptHandler `(v  1 e 1 0 ]
+"43
+[v _IOCAF5_CustumInterruptHandler IOCAF5_CustumInterruptHandler `(v  1 e 1 0 ]
+"47
+[v _IOCBF5_CustumInterruptHandler IOCBF5_CustumInterruptHandler `(v  1 e 1 0 ]
+"51
+[v _IOCBF7_CustumInterruptHandler IOCBF7_CustumInterruptHandler `(v  1 e 1 0 ]
+"56
+[v _RE_Initialize RE_Initialize `(v  1 e 1 0 ]
+"64
+[v _SetPWMMorter SetPWMMorter `(v  1 e 1 0 ]
+"76
+[v _SetPWMHeater SetPWMHeater `(v  1 e 1 0 ]
+"10 C:\Users\blood\MPLABXProjects\MagneticStaller.X\timer0Handler.c
+[v _TMR0_CustumInterruptHandler TMR0_CustumInterruptHandler `(v  1 e 1 0 ]
+"22
+[v _tmr0Handler_Initialize tmr0Handler_Initialize `(v  1 e 1 0 ]
+[s S31 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"374 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f1508.h
+[s S40 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S45 . 1 `S31 1 . 1 0 `S40 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES45  1 e 1 @11 ]
+[s S1117 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"444
+[u S1124 . 1 `S1117 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1124  1 e 1 @12 ]
+[s S1134 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"493
+[u S1140 . 1 `S1134 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1140  1 e 1 @13 ]
+[s S1066 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"535
+[u S1075 . 1 `S1066 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES1075  1 e 1 @14 ]
+[s S121 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"597
+[u S130 . 1 `S121 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES130  1 e 1 @17 ]
+[s S324 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NCO1IF 1 0 :1:2 
+`uc 1 BCL1IF 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 C1IF 1 0 :1:5 
+`uc 1 C2IF 1 0 :1:6 
+`uc 1 OSFIF 1 0 :1:7 
+]
+"653
+[u S332 . 1 `S324 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES332  1 e 1 @18 ]
+"721
+[v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
+"930
+[v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
+"950
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"970
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
+[s S143 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"991
+[s S147 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S155 . 1 `S143 1 . 1 0 `S147 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES155  1 e 1 @28 ]
+"1041
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1091
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+"1130
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+[s S343 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1209
+[u S352 . 1 `S343 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES352  1 e 1 @145 ]
+[s S364 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NCO1IE 1 0 :1:2 
+`uc 1 BCL1IE 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 C1IE 1 0 :1:5 
+`uc 1 C2IE 1 0 :1:6 
+`uc 1 OSFIE 1 0 :1:7 
+]
+"1265
+[u S372 . 1 `S364 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES372  1 e 1 @146 ]
+"1333
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @149 ]
+[s S219 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 TMR0SE 1 0 :1:4 
+`uc 1 TMR0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nWPUEN 1 0 :1:7 
+]
+"1356
+[s S226 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+]
+[u S233 . 1 `S219 1 . 1 0 `S226 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES233  1 e 1 @149 ]
+"1473
+[v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
+"1532
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1866
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"1911
+[v _LATB LATB `VEuc  1 e 1 @269 ]
+"1950
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+[s S1159 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1967
+[u S1168 . 1 `S1159 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1168  1 e 1 @270 ]
+"2296
+[v _BORCON BORCON `VEuc  1 e 1 @278 ]
+"2498
+[v _APFCON APFCON `VEuc  1 e 1 @285 ]
+"2545
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2592
+[v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"2628
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"3141
+[v _WPUA WPUA `VEuc  1 e 1 @524 ]
+"3199
+[v _WPUB WPUB `VEuc  1 e 1 @525 ]
+"3247
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3285
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"3361
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"3483
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+[s S383 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"3512
+[s S392 . 1 `uc 1 SSPM 1 0 :4:0 
+]
+[u S394 . 1 `S383 1 . 1 0 `S392 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES394  1 e 1 @533 ]
+[s S409 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"3709
+[u S418 . 1 `S409 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES418  1 e 1 @534 ]
+"3809
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @535 ]
+[s S785 . 1 `uc 1 IOCAP0 1 0 :1:0 
+`uc 1 IOCAP1 1 0 :1:1 
+`uc 1 IOCAP2 1 0 :1:2 
+`uc 1 IOCAP3 1 0 :1:3 
+`uc 1 IOCAP4 1 0 :1:4 
+`uc 1 IOCAP5 1 0 :1:5 
+]
+"3949
+[s S792 . 1 `uc 1 IOCAP 1 0 :6:0 
+]
+[u S794 . 1 `S785 1 . 1 0 `S792 1 . 1 0 ]
+[v _IOCAPbits IOCAPbits `VES794  1 e 1 @913 ]
+[s S763 . 1 `uc 1 IOCAN0 1 0 :1:0 
+`uc 1 IOCAN1 1 0 :1:1 
+`uc 1 IOCAN2 1 0 :1:2 
+`uc 1 IOCAN3 1 0 :1:3 
+`uc 1 IOCAN4 1 0 :1:4 
+`uc 1 IOCAN5 1 0 :1:5 
+]
+"4007
+[s S770 . 1 `uc 1 IOCAN 1 0 :6:0 
+]
+[u S772 . 1 `S763 1 . 1 0 `S770 1 . 1 0 ]
+[v _IOCANbits IOCANbits `VES772  1 e 1 @914 ]
+[s S741 . 1 `uc 1 IOCAF0 1 0 :1:0 
+`uc 1 IOCAF1 1 0 :1:1 
+`uc 1 IOCAF2 1 0 :1:2 
+`uc 1 IOCAF3 1 0 :1:3 
+`uc 1 IOCAF4 1 0 :1:4 
+`uc 1 IOCAF5 1 0 :1:5 
+]
+"4065
+[s S748 . 1 `uc 1 IOCAF 1 0 :6:0 
+]
+[u S750 . 1 `S741 1 . 1 0 `S748 1 . 1 0 ]
+[v _IOCAFbits IOCAFbits `VES750  1 e 1 @915 ]
+[s S851 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBP4 1 0 :1:4 
+`uc 1 IOCBP5 1 0 :1:5 
+`uc 1 IOCBP6 1 0 :1:6 
+`uc 1 IOCBP7 1 0 :1:7 
+]
+"4123
+[s S857 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBP 1 0 :4:4 
+]
+[u S860 . 1 `S851 1 . 1 0 `S857 1 . 1 0 ]
+[v _IOCBPbits IOCBPbits `VES860  1 e 1 @916 ]
+[s S829 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBN4 1 0 :1:4 
+`uc 1 IOCBN5 1 0 :1:5 
+`uc 1 IOCBN6 1 0 :1:6 
+`uc 1 IOCBN7 1 0 :1:7 
+]
+"4171
+[s S835 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBN 1 0 :4:4 
+]
+[u S838 . 1 `S829 1 . 1 0 `S835 1 . 1 0 ]
+[v _IOCBNbits IOCBNbits `VES838  1 e 1 @917 ]
+[s S807 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBF4 1 0 :1:4 
+`uc 1 IOCBF5 1 0 :1:5 
+`uc 1 IOCBF6 1 0 :1:6 
+`uc 1 IOCBF7 1 0 :1:7 
+]
+"4219
+[s S813 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IOCBF 1 0 :4:4 
+]
+[u S816 . 1 `S807 1 . 1 0 `S813 1 . 1 0 ]
+[v _IOCBFbits IOCBFbits `VES816  1 e 1 @918 ]
+"4665
+[v _PWM1DCL PWM1DCL `VEuc  1 e 1 @1553 ]
+"4701
+[v _PWM1DCH PWM1DCH `VEuc  1 e 1 @1554 ]
+"4771
+[v _PWM1CON PWM1CON `VEuc  1 e 1 @1555 ]
+"4847
+[v _PWM2DCL PWM2DCL `VEuc  1 e 1 @1556 ]
+"4883
+[v _PWM2DCH PWM2DCH `VEuc  1 e 1 @1557 ]
+"4953
+[v _PWM2CON PWM2CON `VEuc  1 e 1 @1558 ]
+"5211
+[v _PWM4DCL PWM4DCL `VEuc  1 e 1 @1562 ]
+"5247
+[v _PWM4DCH PWM4DCH `VEuc  1 e 1 @1563 ]
+"5317
+[v _PWM4CON PWM4CON `VEuc  1 e 1 @1564 ]
+"5 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cTherm.c
+[v _stts751addr stts751addr `DCus  1 e 2 0 ]
+"6
+[v _tempHighreg tempHighreg `DCuc  1 e 1 0 ]
+"30 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"185 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[s S278 . 3 `uc 1 count 1 0 `*.4S266 1 ptrb_list 1 1 `*.4E3475 1 pTrFlag 1 2 ]
+[v _i2c_tr_queue i2c_tr_queue `[1]S278  1 s 3 i2c_tr_queue ]
+"186
+[s S282 . 1 `uc 1 full 1 0 :1:0 
+`uc 1 empty 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+[u S286 . 1 `S282 1 s 1 0 `uc 1 status 1 0 ]
+[s S289 . 5 `*.4S278 1 pTrTail 1 0 `*.4S278 1 pTrHead 1 1 `S286 1 trStatus 1 2 `uc 1 i2cDoneFlag 1 3 `uc 1 i2cErrors 1 4 ]
+[v _i2c_object i2c_object `S289  1 s 5 i2c_object ]
+"187
+[v _i2c_state i2c_state `E3538  1 s 1 i2c_state ]
+"188
+[v _i2c_trb_count i2c_trb_count `uc  1 s 1 i2c_trb_count ]
+"190
+[v _p_i2c_trb_current p_i2c_trb_current `*.4S266  1 s 1 p_i2c_trb_current ]
+"191
+[v _p_i2c_current p_i2c_current `*.4VES278  1 s 1 p_i2c_current ]
+"57 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCAF4_InterruptHandler IOCAF4_InterruptHandler `*.37(v  1 e 2 0 ]
+"58
+[v _IOCAF5_InterruptHandler IOCAF5_InterruptHandler `*.37(v  1 e 2 0 ]
+"59
+[v _IOCBF5_InterruptHandler IOCBF5_InterruptHandler `*.37(v  1 e 2 0 ]
+"60
+[v _IOCBF7_InterruptHandler IOCBF7_InterruptHandler `*.37(v  1 e 2 0 ]
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr0.c
+[v _timer0ReloadVal timer0ReloadVal `VEuc  1 e 1 0 ]
+"59
+[v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
+"9 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _rePattern rePattern `DC[16]uc  1 e 16 0 ]
+"10
+[v _reIndex1 reIndex1 `uc  1 s 1 reIndex1 ]
+"11
+[v _reIndex2 reIndex2 `uc  1 s 1 reIndex2 ]
+"7 C:\Users\blood\MPLABXProjects\MagneticStaller.X\timer0Handler.c
+[v _rpm_multipuler rpm_multipuler `DCuc  1 e 1 0 ]
+"8
+[v _iMotorRotate1sCnt iMotorRotate1sCnt `uc  1 s 1 iMotorRotate1sCnt ]
+"3 C:\Users\blood\MPLABXProjects\MagneticStaller.X\Varient.c
+[v _iPWMMotor iPWMMotor `VEs  1 e 2 0 ]
+"4
+[v _iPWMHeater iPWMHeater `VEs  1 e 2 0 ]
+"6
+[v _iHeaterTemp iHeaterTemp `VEc  1 e 1 0 ]
+"7
+[v _iMotorRotateCnt iMotorRotateCnt `VEuc  1 e 1 0 ]
+"8
+[v _iMotorRotate iMotorRotate `VEus  1 e 2 0 ]
+"10
+[v _sMotor sMotor `VEuc  1 e 1 0 ]
+"57 C:\Users\blood\MPLABXProjects\MagneticStaller.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"99
+[v main@temp temp `uc  1 a 1 39 ]
+"113
+} 0
+"22 C:\Users\blood\MPLABXProjects\MagneticStaller.X\timer0Handler.c
+[v _tmr0Handler_Initialize tmr0Handler_Initialize `(v  1 e 1 0 ]
+{
+"25
+} 0
+"10 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cTherm.c
+[v _getTemp getTemp `(c  1 e 1 0 ]
+{
+"11
+[v getTemp@temp temp `uc  1 a 1 35 ]
+"18
+} 0
+"64 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _SetPWMMorter SetPWMMorter `(v  1 e 1 0 ]
+{
+"74
+} 0
+"72 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm2.c
+[v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM2_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"79
+} 0
+"76 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _SetPWMHeater SetPWMHeater `(v  1 e 1 0 ]
+{
+"87
+} 0
+"72 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm4.c
+[v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM4_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"79
+} 0
+"72 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm1.c
+[v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM1_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"79
+} 0
+"22 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cMotor.c
+[v _SetMotorSpeed SetMotorSpeed `(v  1 e 1 0 ]
+{
+[s S1308 . 1 `uc 1 IN1 1 0 :1:0 
+`uc 1 IN2 1 0 :1:1 
+`uc 1 VSET 1 0 :6:2 
+]
+"28
+[u S1312 . 1 `uc 1 byte 1 0 `S1308 1 . 1 0 ]
+[v SetMotorSpeed@reg1 reg1 `S1312  1 a 1 36 ]
+"36
+} 0
+"8
+[v _zeroMotorParam zeroMotorParam `(v  1 e 1 0 ]
+{
+[s S1308 . 1 `uc 1 IN1 1 0 :1:0 
+`uc 1 IN2 1 0 :1:1 
+`uc 1 VSET 1 0 :6:2 
+]
+"9
+[u S1312 . 1 `uc 1 byte 1 0 `S1308 1 . 1 0 ]
+[v zeroMotorParam@reg1 reg1 `S1312  1 a 1 34 ]
+[s S1316 . 1 `uc 1 FAULT 1 0 :1:0 
+`uc 1 OCP 1 0 :1:1 
+`uc 1 UVLO 1 0 :1:2 
+`uc 1 OTS 1 0 :1:3 
+`uc 1 ILIMIT 1 0 :1:4 
+`uc 1 RESERVE 1 0 :2:5 
+`uc 1 CLEAR 1 0 :1:7 
+]
+"16
+[u S1324 . 1 `uc 1 byte 1 0 `S1316 1 . 1 0 ]
+[v zeroMotorParam@reg2 reg2 `S1324  1 a 1 33 ]
+"20
+} 0
+"29 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cGeneric.c
+[v _i2cRegisterWrite1Byte i2cRegisterWrite1Byte `(v  1 e 1 0 ]
+{
+"31
+[v i2cRegisterWrite1Byte@writeBuffer writeBuffer `[2]uc  1 a 2 29 ]
+"32
+[v i2cRegisterWrite1Byte@status status `E3475  1 a 1 31 ]
+"29
+[v i2cRegisterWrite1Byte@slaveaddr slaveaddr `us  1 p 2 22 ]
+[v i2cRegisterWrite1Byte@regaddr regaddr `uc  1 p 1 24 ]
+[v i2cRegisterWrite1Byte@data data `uc  1 p 1 25 ]
+"39
+} 0
+"5
+[v _i2cWrite i2cWrite `(v  1 e 1 0 ]
+{
+"9
+[v i2cWrite@timeOut timeOut `uc  1 a 1 21 ]
+"5
+[v i2cWrite@slaveaddr slaveaddr `us  1 p 2 14 ]
+[v i2cWrite@count count `uc  1 p 1 16 ]
+[v i2cWrite@pData pData `*.4uc  1 p 1 17 ]
+[v i2cWrite@status status `*.4E3475  1 p 1 18 ]
+"26
+} 0
+"50 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"63
+} 0
+"73
+[v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
+{
+"77
+} 0
+"62 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"77
+} 0
+"64 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"85
+} 0
+"140
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"142
+} 0
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm4.c
+[v _PWM4_Initialize PWM4_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm2.c
+[v _PWM2_Initialize PWM2_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"58 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pwm1.c
+[v _PWM1_Initialize PWM1_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"63 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"139
+} 0
+"65 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"71
+} 0
+"198 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
+{
+"224
+} 0
+"59 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _EXT_INT_Initialize EXT_INT_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"56 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _RE_Initialize RE_Initialize `(v  1 e 1 0 ]
+{
+"62
+} 0
+"273 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCBF7_SetInterruptHandler IOCBF7_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF7_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"275
+} 0
+"243
+[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"245
+} 0
+"213
+[v _IOCAF5_SetInterruptHandler IOCAF5_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCAF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"215
+} 0
+"183
+[v _IOCAF4_SetInterruptHandler IOCAF4_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCAF4_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"185
+} 0
+"13 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rpmHole.c
+[v _Hole_Initialize Hole_Initialize `(v  1 e 1 0 ]
+{
+"19
+} 0
+"50 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"52
+} 0
+"38 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cMotor.c
+[v _GetFaultState GetFaultState `(v  1 e 1 0 ]
+{
+[s S1316 . 1 `uc 1 FAULT 1 0 :1:0 
+`uc 1 OCP 1 0 :1:1 
+`uc 1 UVLO 1 0 :1:2 
+`uc 1 OTS 1 0 :1:3 
+`uc 1 ILIMIT 1 0 :1:4 
+`uc 1 RESERVE 1 0 :2:5 
+`uc 1 CLEAR 1 0 :1:7 
+]
+"40
+[u S1324 . 1 `uc 1 byte 1 0 `S1316 1 . 1 0 ]
+[v GetFaultState@reg2 reg2 `S1324  1 a 1 36 ]
+"41
+[v GetFaultState@rtn rtn `a  1 a 1 35 ]
+"49
+} 0
+"82 C:\Users\blood\MPLABXProjects\MagneticStaller.X\i2cGeneric.c
+[v _i2cRegisterRead1Byte i2cRegisterRead1Byte `(a  1 e 1 0 ]
+{
+"83
+[v i2cRegisterRead1Byte@status status `E3475  1 a 1 32 ]
+"84
+[v i2cRegisterRead1Byte@writeBuffer writeBuffer `[1]uc  1 a 1 31 ]
+"82
+[v i2cRegisterRead1Byte@slaveaddr slaveaddr `us  1 p 2 24 ]
+[v i2cRegisterRead1Byte@regaddr regaddr `uc  1 p 1 26 ]
+[v i2cRegisterRead1Byte@pData pData `*.4uc  1 p 1 27 ]
+"89
+} 0
+"41
+[v _i2cRead i2cRead `(v  1 e 1 0 ]
+{
+"43
+[v i2cRead@timeOut timeOut `uc  1 a 1 23 ]
+"41
+[v i2cRead@slaveaddr slaveaddr `us  1 p 2 14 ]
+[v i2cRead@wcount wcount `uc  1 p 1 16 ]
+[v i2cRead@pwData pwData `*.4uc  1 p 1 17 ]
+[v i2cRead@icount icount `uc  1 p 1 18 ]
+[v i2cRead@pData pData `*.4uc  1 p 1 19 ]
+[v i2cRead@status status `*.4E3475  1 p 1 20 ]
+"80
+} 0
+"600 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[v _I2C_MasterWrite I2C_MasterWrite `(v  1 e 1 0 ]
+{
+"601
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 wreg ]
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 wreg ]
+"602
+[v I2C_MasterWrite@length length `uc  1 p 1 7 ]
+"603
+[v I2C_MasterWrite@address address `us  1 p 2 8 ]
+"604
+[v I2C_MasterWrite@pflag pflag `*.4E3475  1 p 1 10 ]
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"606
+[v I2C_MasterWrite@trBlock trBlock `S266  1 s 4 trBlock ]
+"609
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 13 ]
+"619
+} 0
+"721
+[v _I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
+{
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"722
+[v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S266  1 a 1 wreg ]
+[v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S266  1 a 1 wreg ]
+"723
+[v I2C_MasterWriteTRBBuild@pdata pdata `*.4uc  1 p 1 0 ]
+"724
+[v I2C_MasterWriteTRBBuild@length length `uc  1 p 1 1 ]
+"725
+[v I2C_MasterWriteTRBBuild@address address `us  1 p 2 2 ]
+"727
+"722
+[v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S266  1 a 1 6 ]
+"730
+} 0
+"621
+[v _I2C_MasterRead I2C_MasterRead `(v  1 e 1 0 ]
+{
+"622
+[v I2C_MasterRead@pdata pdata `*.4uc  1 a 1 wreg ]
+[v I2C_MasterRead@pdata pdata `*.4uc  1 a 1 wreg ]
+"623
+[v I2C_MasterRead@length length `uc  1 p 1 7 ]
+"624
+[v I2C_MasterRead@address address `us  1 p 2 8 ]
+"625
+[v I2C_MasterRead@pflag pflag `*.4E3475  1 p 1 10 ]
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"627
+[v I2C_MasterRead@trBlock trBlock `S266  1 s 4 trBlock ]
+"631
+[v I2C_MasterRead@pdata pdata `*.4uc  1 a 1 13 ]
+"641
+} 0
+"654
+[v _I2C_MasterTRBInsert I2C_MasterTRBInsert `(v  1 e 1 0 ]
+{
+"655
+[v I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
+[v I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"656
+[v I2C_MasterTRBInsert@ptrb_list ptrb_list `*.4S266  1 p 1 0 ]
+"657
+[v I2C_MasterTRBInsert@pflag pflag `*.4E3475  1 p 1 1 ]
+"661
+[v I2C_MasterTRBInsert@count count `uc  1 a 1 3 ]
+"706
+} 0
+"644
+[v _I2C_WaitForLastPacketToComplete I2C_WaitForLastPacketToComplete `T(v  1 e 1 0 ]
+{
+"652
+} 0
+"708
+[v _I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
+{
+[s S266 . 4 `us 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
+"709
+[v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S266  1 a 1 wreg ]
+[v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S266  1 a 1 wreg ]
+"710
+[v I2C_MasterReadTRBBuild@pdata pdata `*.4uc  1 p 1 0 ]
+"711
+[v I2C_MasterReadTRBBuild@length length `uc  1 p 1 1 ]
+"712
+[v I2C_MasterReadTRBBuild@address address `us  1 p 2 2 ]
+"714
+"709
+[v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S266  1 a 1 6 ]
+"719
+} 0
+"52 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+{
+"86
+} 0
+"108 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"110
+[v TMR0_ISR@CountCallBack CountCallBack `VEus  1 s 2 CountCallBack ]
+"128
+} 0
+"130
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+{
+"138
+} 0
+"10 C:\Users\blood\MPLABXProjects\MagneticStaller.X\timer0Handler.c
+[v _TMR0_CustumInterruptHandler TMR0_CustumInterruptHandler `(v  1 e 1 0 ]
+{
+"20
+} 0
+"144 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/tmr0.c
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"147
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"141 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+{
+"163
+} 0
+"258
+[v _IOCBF7_ISR IOCBF7_ISR `(v  1 e 1 0 ]
+{
+"268
+} 0
+"51 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _IOCBF7_CustumInterruptHandler IOCBF7_CustumInterruptHandler `(v  1 e 1 0 ]
+{
+"53
+} 0
+"280 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCBF7_DefaultInterruptHandler IOCBF7_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"283
+} 0
+"228
+[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
+{
+"238
+} 0
+"47 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _IOCBF5_CustumInterruptHandler IOCBF5_CustumInterruptHandler `(v  1 e 1 0 ]
+{
+"49
+} 0
+"250 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"253
+} 0
+"32 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _cbRE2 cbRE2 `(v  1 e 1 0 ]
+{
+"36
+} 0
+"19
+[v _readRE2 readRE2 `(c  1 e 1 0 ]
+{
+"22
+} 0
+"198 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCAF5_ISR IOCAF5_ISR `(v  1 e 1 0 ]
+{
+"208
+} 0
+"43 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _IOCAF5_CustumInterruptHandler IOCAF5_CustumInterruptHandler `(v  1 e 1 0 ]
+{
+"45
+} 0
+"220 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCAF5_DefaultInterruptHandler IOCAF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"223
+} 0
+"168
+[v _IOCAF4_ISR IOCAF4_ISR `(v  1 e 1 0 ]
+{
+"178
+} 0
+"39 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _IOCAF4_CustumInterruptHandler IOCAF4_CustumInterruptHandler `(v  1 e 1 0 ]
+{
+"41
+} 0
+"190 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/pin_manager.c
+[v _IOCAF4_DefaultInterruptHandler IOCAF4_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"193
+} 0
+"25 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rtEnc.c
+[v _cbRE1 cbRE1 `(v  1 e 1 0 ]
+{
+"29
+} 0
+"14
+[v _readRE1 readRE1 `(c  1 e 1 0 ]
+{
+"17
+} 0
+"32 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _INT_ISR INT_ISR `(v  1 e 1 0 ]
+{
+"38
+} 0
+"41
+[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
+{
+"48
+} 0
+"6 C:\Users\blood\MPLABXProjects\MagneticStaller.X\rpmHole.c
+[v _INTCustumInterruptHandler INTCustumInterruptHandler `(v  1 e 1 0 ]
+{
+"10
+} 0
+"54 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/ext_int.c
+[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"57
+} 0
+"235 C:\Users\blood\MPLABXProjects\MagneticStaller.X\mcc_generated_files/i2c.c
+[v _I2C_ISR I2C_ISR `(v  1 e 1 0 ]
+{
+"238
+[v I2C_ISR@pi2c_buf_ptr pi2c_buf_ptr `*.4uc  1 s 1 pi2c_buf_ptr ]
+"239
+[v I2C_ISR@i2c_address i2c_address `us  1 s 2 i2c_address ]
+"240
+[v I2C_ISR@i2c_bytes_left i2c_bytes_left `uc  1 s 1 i2c_bytes_left ]
+"241
+[v I2C_ISR@i2c_10bit_address_restart i2c_10bit_address_restart `uc  1 s 1 i2c_10bit_address_restart ]
+"563
+} 0
+"583
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+[v I2C_Stop@completion_code completion_code `E3475  1 a 1 wreg ]
+[v I2C_Stop@completion_code completion_code `E3475  1 a 1 wreg ]
+"586
+[v I2C_Stop@completion_code completion_code `E3475  1 a 1 1 ]
+"598
+} 0
+"565
+[v _I2C_FunctionComplete I2C_FunctionComplete `(v  1 e 1 0 ]
+{
+"581
+} 0
+"742
+[v _I2C_BusCollisionISR I2C_BusCollisionISR `(v  1 e 1 0 ]
+{
+"746
+} 0
