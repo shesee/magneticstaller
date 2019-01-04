@@ -37,7 +37,7 @@ typedef union {
 }DDRSetCmd;
 
 //LCDの初期化
-extern void I2CLED_Initialize(void);
+extern void I2CLCD_Initialize(void);
 
 //ラインの描画
 // @param string 16文字までののuint8_t 配列
