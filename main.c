@@ -50,6 +50,7 @@
 #include "i2cMotor.h"
 #include "i2cTherm.h"
 #include "i2cLCD.h"
+#include "displayLCD.h"
 
 /*
                          Main application
@@ -60,7 +61,7 @@ void main(void)
     SYSTEM_Initialize();
     
     //ホール素子検出の初期化
-    Hole_Initialize();
+    Hole_Initialize(); 
     
     //Timer 0 WDT初期化 回転数計算
     tmr0Handler_Initialize();
@@ -84,10 +85,10 @@ void main(void)
     zeroMotorParam();
     
     //温度の初期値を読みこむ
-    if(!getTemp())iHeaterTemp=20;
+    if(!getTemp())iHeaterTemp=127;
     
     //LCD初期化
-
+    I2CLED_Initialize();
     
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -101,13 +102,19 @@ void main(void)
         if(!FAIL_PORT){
             GetFaultState();
         }
-        if(!sMotor)SetMotorSpeed();
+        
+        if(sMotor){            
+            zeroMotorParam();            
+        }else{           
+            SetMotorSpeed();       
+        }
         
         temp = getTemp();
         
         //LCD表示
+        displayLCD();
         
-        __delay_ms(200);
+        //__delay_ms(200);
         
     }
 }
