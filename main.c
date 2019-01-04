@@ -88,7 +88,7 @@ void main(void)
     if(!getTemp())iHeaterTemp=127;
     
     //LCD初期化
-    I2CLED_Initialize();
+    I2CLCD_Initialize();
     
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();

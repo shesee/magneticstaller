@@ -29,7 +29,7 @@ void writeCommand(uint8_t cmd){
     
 }
 
-void I2CLED_Initialize(void){
+void I2CLCD_Initialize(void){
     __delay_ms(100);
     
     writeCommand(cmd_Functionset);
