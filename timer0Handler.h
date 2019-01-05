@@ -11,12 +11,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
-#include <xc.h>
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
+//タイマー0ハンドラを初期化して回転数を計算する。
 extern void tmr0Handler_Initialize(void);
 
 
