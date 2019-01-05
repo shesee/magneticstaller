@@ -82,6 +82,7 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
  
     //モーターを初期状態に
+    Motor_Initialize();
     zeroMotorParam();
     
     //温度の初期値を読みこむ
@@ -90,6 +91,8 @@ void main(void)
     //LCD初期化
     I2CLCD_Initialize();
     
+    //LCD表示初期化
+    displayLCD_Initialize();
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
 
@@ -98,18 +101,30 @@ void main(void)
 
     while (1){
         uint8_t temp;
-        
+        //モータードライバのFAILがネガティブの場合、理由をとってくる。
         if(!FAIL_PORT){
             GetFaultState();
+        }else{
+            Motor_Initialize();
+            displayLCD_Initialize();
         }
-        
-        if(sMotor){            
+        //モーターがFAILの場合はモーターを初期化する。
+        //それ以外の場合はPWM値にしたがってモータードライバのスピードを設定する。
+        if(sMotor.byte){            
             zeroMotorParam();            
         }else{           
             SetMotorSpeed();       
         }
-        
+        //モータードライバのFAILがネガティブの場合、理由をとってくる。
+        if(!FAIL_PORT){
+            GetFaultState();
+        }
+        //温度をとってくる
         temp = getTemp();
+        
+        //PWM デューティー比の設定
+        SetPWMMorter();
+        SetPWMHeater();
         
         //LCD表示
         displayLCD();
