@@ -15,8 +15,11 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-extern int8_t getTemp(void);//ヒーター温度の取得
+    
+//ヒーター温度の取得
+// @return ヒーター温度 1度単位
+// 同じ値をiHeaterTempに設定する
+extern int8_t getTemp(void);
 
 
 #ifdef	__cplusplus
