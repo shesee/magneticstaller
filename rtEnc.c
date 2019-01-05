@@ -24,15 +24,15 @@ int8_t readRE2(void){
 //ロータリエンコーダー1をモーターPWMの値に変換
 void cbRE1(void){   
     iPWMMotor += readRE1();
-    if(iPWMMotor > iPWMMotorMax)iPWMMotor = iPWMMotorMax;
-    if(iPWMMotor < iPWMMotorMin)iPWMMotor=iPWMMotorMin;    
+    if(iPWMMotor > PWMMotorMax)iPWMMotor = PWMMotorMax;
+    if(iPWMMotor < PWMMotorMin)iPWMMotor=PWMMotorMin;    
 };
 
 //ロータリエンコーダー2をヒーターPWMの値に変換
 void cbRE2(void){
     iPWMHeater += readRE2();
-    if(iPWMHeater > iPWMHeaterMax)iPWMHeater = iPWMHeaterMax;
-    if(iPWMHeater < iPWMHeaterMin)iPWMHeater = iPWMHeaterMin;
+    if(iPWMHeater > PWMHeaterMax)iPWMHeater = PWMHeaterMax;
+    if(iPWMHeater < PWMHeaterMin)iPWMHeater = PWMHeaterMin;
 };
 
 //カスタム割り込みハンドラー
@@ -63,7 +63,7 @@ void RE_Initialize(void){
 
 void SetPWMMorter(void){
     //ロータリーエンコーダーのLEDの制御
-    if(iPWMMotor == iPWMMotorMin){
+    if(iPWMMotor == PWMMotorMin){
         RE1LED_SetHigh();// ON OFF LED
         PWM2_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
