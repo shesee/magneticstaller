@@ -16,6 +16,3 @@ int8_t getTemp(void){
     return (int8_t)temp;
             
 }
-
-
-
