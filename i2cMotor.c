@@ -5,26 +5,37 @@
 #define drv8830addr_w 0xC0
 #define drv8830addr_r 0xC1
 
+
+volatile DRV8830Reg2 sMotor;//モーターの状態
+
+void Motor_Initialize(void){
+    
+    sMotor.byte = 0;
+
+};
+
+
 void zeroMotorParam(void){
+    
     DRV8830Reg1 reg1;
     reg1.IN1 = 0;
     reg1.IN2 = 0;// Standby
-    reg1.VSET = (iPWMMotorMin&0x3F);
+    reg1.VSET = (PWMMotorMin&0x3F);
 
     i2cRegisterWrite1Byte(drv8830addr_w,0,reg1.byte);
     
     DRV8830Reg2 reg2;
     reg2.CLEAR = 1;
     i2cRegisterWrite1Byte(drv8830addr_w,1,reg2.byte);
-
+    
 }
 
 void SetMotorSpeed(void){
     
-    if(iPWMMotor == iPWMMotorMin){
+    if(iPWMMotor == PWMMotorMin){
         zeroMotorParam();
     }else{
-        if(!sMotor){
+        if(!sMotor.byte){
             DRV8830Reg1 reg1;
             reg1.IN1 = 1;
             reg1.IN2 = 0;// Forward
@@ -43,7 +54,7 @@ void GetFaultState(void){
     rtn = i2cRegisterRead1Byte(drv8830addr_w,1,&(reg2.byte));
     if(rtn && reg2.byte){
         if(reg2.FAULT){
-            sMotor = reg2.byte;
+            sMotor.byte = reg2.byte;
         }
     }
 }
