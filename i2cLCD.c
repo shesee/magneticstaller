@@ -5,7 +5,7 @@
 
 
 //I2Cアドレス
-const uint8_t slaveaddr = 0x3E;
+const uint8_t AQM1602addr = 0x3E;
 
 //初期化のコマンド
 const uint8_t cmd_Functionset        = 0x38;
@@ -25,7 +25,7 @@ void writeCommand(uint8_t cmd){
     I2CLCDControl con;
     con.byte = 0;
     
-    i2cRegisterWrite1Byte(slaveaddr,con.byte,cmd);
+    i2cRegisterWrite1Byte(AQM1602addr,con.byte,cmd);
     
 }
 
@@ -65,7 +65,7 @@ void writeLine(uint8_t* string,uint8_t cnt,uint8_t line){
     writeCommand(cmd_ddr.byte);
     
     for(int i=0;i < cnt;i++){
-        i2cRegisterWrite1Byte(slaveaddr,con.byte,string[i]);
+        i2cRegisterWrite1Byte(AQM1602addr,con.byte,string[i]);
         __delay_us(30);
     }
 }
