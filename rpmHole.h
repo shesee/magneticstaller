@@ -16,6 +16,8 @@
 extern "C" {
 #endif
 
+//外部割り込みを設定し
+//ホールICのネガティブONの信号で割り込みを発生させiMotorRotateCntに反映する
 extern void Hole_Initialize(void);
 
 
