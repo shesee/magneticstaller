@@ -211,7 +211,7 @@ void I2C_Initialize(void)
     // ACKTIM ackseq; SBCDE disabled; BOEN disabled; SCIE disabled; PCIE disabled; DHEN disabled; SDAHT 100ns; AHEN disabled; 
     SSP1CON3 = 0x00;
     // ADD 3; 
-    SSP1ADD = 0x09;//400kbps
+    SSP1ADD = 0x27;//100kbps I2C Freq
     
     // clear the interrupt flags
     PIR1bits.SSP1IF = 0;
