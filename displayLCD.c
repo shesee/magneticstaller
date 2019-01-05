@@ -23,7 +23,7 @@ void displayLCD_Initialize(void){
     }   
 };
 
-//10進数をラインバッファに出力する
+// @brief 10進数をラインバッファに出力する
 // @param val 出力する8bitの数値
 // @param buff 出力先のバッファ 3個の文字列を上書きする
 void putd(uint8_t val,char* buff){
@@ -34,7 +34,7 @@ void putd(uint8_t val,char* buff){
         val = val / 10 ;
     };
 };
-//文字列をラインバッファに出力する
+// @brief 文字列をラインバッファに出力する
 // @param str 出力する文字列
 // @param cnt 文字列の長さ
 // @param buff 出力先のバッファ　バッファオーバーフローにならないように
