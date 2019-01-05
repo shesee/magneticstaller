@@ -55,8 +55,7 @@
 /*
                          Main application
  */
-void main(void)
-{
+void main(void){
     // initialize the device
     SYSTEM_Initialize();
     
@@ -101,23 +100,16 @@ void main(void)
 
     while (1){
         uint8_t temp;
-        //モータードライバのFAILがネガティブの場合、理由をとってくる。
+        //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。
         if(!FAIL_PORT){
             GetFaultState();
-        }else{
-            Motor_Initialize();
-            displayLCD_Initialize();
         }
-        //モーターがFAILの場合はモーターを初期化する。
+        //モーターがFAULTの場合はモーターを初期化する。
         //それ以外の場合はPWM値にしたがってモータードライバのスピードを設定する。
         if(sMotor.byte){            
             zeroMotorParam();            
         }else{           
             SetMotorSpeed();       
-        }
-        //モータードライバのFAILがネガティブの場合、理由をとってくる。
-        if(!FAIL_PORT){
-            GetFaultState();
         }
         //温度をとってくる
         temp = getTemp();
@@ -129,7 +121,7 @@ void main(void)
         //LCD表示
         displayLCD();
         
-        //__delay_ms(200);
+        __delay_ms(200);
         
     }
 }
