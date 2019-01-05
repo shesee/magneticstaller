@@ -15,7 +15,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-//LCDコントロ－ルバイト
+//LCDコントロ－ルバイトビットフィールド
+//他のI2Cデバイスのレジスタアドレスに該当する
 typedef union {
     uint8_t byte;
     
@@ -27,6 +28,7 @@ typedef union {
 }I2CLCDControl;
 
 //テキスト出力先RAMアドレス指定制御コマンド
+//出力先アドレスは1行目が0x00 2行目が0x40
 typedef union {
     uint8_t byte;
     
@@ -37,9 +39,10 @@ typedef union {
 }DDRSetCmd;
 
 //LCDの初期化
+//規定のI2C LCD初期化手順を行う
 extern void I2CLCD_Initialize(void);
 
-//ラインの描画
+//LCD1ラインのラインの描画
 // @param string 16文字までののuint8_t 配列
 // @param cnt    文字列の長さ
 // @param line   1 or 2 表示する行 0を使わないこと
