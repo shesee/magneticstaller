@@ -16,9 +16,9 @@
 extern "C" {
 #endif
     
-//ヒーター温度の取得
+// @brief ヒーター温度の取得
 // @return ヒーター温度 1度単位
-// 同じ値をiHeaterTempに設定する
+// @brief 同じ値をiHeaterTempに設定する
 extern int8_t getTemp(void);
 
 

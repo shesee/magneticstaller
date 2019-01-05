@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-//タイマー0ハンドラを初期化して回転数を計算する。
+// @brief タイマー0ハンドラを初期化して回転数を計算する。
 extern void tmr0Handler_Initialize(void);
 
 

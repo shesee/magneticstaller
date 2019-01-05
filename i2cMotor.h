@@ -16,7 +16,7 @@
 extern "C" {
 #endif
      
-//DRV8830 レジスタ01 回転方向　回転数制御
+// @brief DRV8830 レジスタ01 回転方向　回転数制御
 typedef union {
     uint8_t byte;
     struct {
@@ -25,7 +25,7 @@ typedef union {
         unsigned VSET    :6;//PWM Value 6～63まで
     };
 } DRV8830Reg1;
-//DRV8830 レジスタ02
+// @brief DRV8830 レジスタ02
 typedef union {
     uint8_t byte;
 
@@ -40,22 +40,23 @@ typedef union {
     };
 } DRV8830Reg2;
 
-extern volatile DRV8830Reg2 sMotor;//モーターの状態
+//!モーターの状態
+extern volatile DRV8830Reg2 sMotor;
 
-//モーターライブラリの初期化
-//sMotorの初期化
+// @brief モーターライブラリの初期化
+// @brief sMotorの初期化
 extern void Motor_Initialize(void);
 
-//モーターの初期化
-//モーター回転数を最低に設定し、INビットをスタンバイに設定する
+// @brief モーターの初期化
+// @brief モーター回転数を最低に設定し、INビットをスタンバイに設定する
 extern void zeroMotorParam(void);
 
-//モータースピードの設定
-//PWM値をモータースピードに反映し、INビットを順方向に設定する
+// @brief モータースピードの設定
+// @brief PWM値をモータースピードに反映し、INビットを順方向に設定する
 extern void SetMotorSpeed(void);
 
-//フォルト状態の取得
-//レジスタ02を取得してsMotorに反映する
+// @brief フォルト状態の取得
+// @brief レジスタ02を取得してsMotorに反映する
 extern void GetFaultState(void);
 
 #ifdef	__cplusplus
