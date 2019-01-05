@@ -18,10 +18,13 @@ extern "C" {
 
 
 // ロータリエンコーダーの割り込みの初期化
+//二つのロータリーエンコーダーのA相 B相を4つの状態変化割り込みに設定する。
 extern void RE_Initialize(void);
 //モーターPWMの反映
-extern void SetPWMMorter(void);//LEDのみ
+//割り込みによって増減したPWM値をローターリーエンコーダーのLEDに反映する
+extern void SetPWMMorter(void);
 //ヒーターPWMの反映
+//割り込みによって増減したPWM値をヒーターのPWMデューティー比に設定する
 extern void SetPWMHeater(void);
 
 #ifdef	__cplusplus
