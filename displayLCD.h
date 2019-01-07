@@ -16,6 +16,9 @@
 extern "C" {
 #endif
 
+// @def ラインの長さ
+#define LINE_LENGTH 16    
+    
 // @enum モータードライバの障害別の列挙型
 enum mdfault {
     OCP,//過電流
