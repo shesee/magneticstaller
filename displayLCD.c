@@ -2,6 +2,7 @@
 #include "i2cLCD.h"
 #include "i2cMotor.h"
 #include "displayLCD.h"
+
 //!モーター障害時の表示文字列
 const char* mtss[] =       {" OverVoltage ",
                             " LowVoltage  ",
@@ -16,13 +17,13 @@ const char* line1temp =  "MTR    RPM/     ";
 const char* line2temp =  "HTR    C  /     ";
 
 //!ライン1のバッファ
-static char line1[16];
+static char line1[LINE_LENGTH];
 //ライン2のバッファ
-static char line2[16];
+static char line2[LINE_LENGTH];
 
 // @brief ラインバッファにテンプレートをコピーする。
 void displayLCD_Initialize(void){
-    for(int i=0;i<16;i++){
+    for(int i=0;i<LINE_LENGTH;i++){
         line1[i] = line1temp[i];
         line2[i] = line2temp[i];        
     }   
@@ -72,19 +73,19 @@ void displayLCD(void){
     putd(iHeaterTemp,line2+3);
     putd(iPWMHeater,line2+13);    
     // @brief LCDにラインバッファを出力する
-    writeLine((uint8_t*)line1,16,1);
-    writeLine((uint8_t*)line2,16,2);
+    writeLine((uint8_t*)line1,LINE_LENGTH,1);
+    writeLine((uint8_t*)line2,LINE_LENGTH,2);
     
 };
 
 void debugWrite(const char* str,uint8_t cnt){
     putc(str,cnt,line1);
-    writeLine((uint8_t*)line1,16,1);
+    writeLine((uint8_t*)line1,LINE_LENGTH,1);
 };
 
 void debugWriteVal(uint8_t val){
     putd(val,line1);
-    writeLine((uint8_t*)line1,16,1);
+    writeLine((uint8_t*)line1,LINE_LENGTH,1);
 };
 
 
