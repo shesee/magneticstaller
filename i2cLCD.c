@@ -21,7 +21,9 @@ const uint8_t cmd_DisplayOn          = 0x0C;
 const uint8_t lineaddr[] = {0x00,0x40};
 
 
-//I2C LCD へのコマンドバイトの送信
+// @breif I2C LCD へのコマンドバイトの送信
+// @param コマンドバイト
+// @return 実行の成否 
 bool writeCommand(uint8_t cmd){
     I2CLCDControl con;
     con.byte = 0;
@@ -30,34 +32,30 @@ bool writeCommand(uint8_t cmd){
     
 }
 
-void I2CLCD_Initialize(void){
-    uint8_t timeout = 0;
-    const uint8_t timeoutMax = 10;
-    
+bool I2CLCD_Initialize(void){     
     __delay_ms(100);
+    bool bComplete = true;
     
-    writeCommand(cmd_Functionset);
+    bComplete = writeCommand(cmd_Functionset);
+    __delay_us(30); 
+    if(bComplete){bComplete = writeCommand(cmd_FunctionsetEx); }else{ return bComplete;};
     __delay_us(30);
+    if(bComplete){bComplete = writeCommand(cmd_ExInternalOSCFreq); }else{ return bComplete;};
+    __delay_us(30);
+    if(bComplete){bComplete = writeCommand(cmd_ExContrastSet); }else{ return bComplete;};    
+    __delay_us(30);    
+    if(bComplete){bComplete = writeCommand(cmd_ExPowerControl); }else{ return bComplete;};
+    __delay_us(30);   
+    if(bComplete){bComplete = writeCommand(cmd_ExFollowerControl); }else{ return bComplete;};
+    __delay_ms(200);
+    if(bComplete){bComplete = writeCommand(cmd_Functionset); }else{ return bComplete;};
+   __delay_us(30);
+    if(bComplete){bComplete = writeCommand(cmd_ClearDisplay); }else{ return bComplete;};
+    __delay_us(30);
+    if(bComplete){bComplete = writeCommand(cmd_DisplayOn); }else{ return bComplete;};
+    __delay_ms(2);
     
-    do{
-        if(writeCommand(cmd_FunctionsetEx))timeout =timeoutMax;
-        __delay_us(30);
-        writeCommand(cmd_ExInternalOSCFreq);
-        __delay_us(30);
-        writeCommand(cmd_ExContrastSet);    
-        __delay_us(30);    
-        writeCommand(cmd_ExPowerControl);
-        __delay_us(30);   
-        writeCommand(cmd_ExFollowerControl);
-        __delay_ms(200);
-        writeCommand(cmd_Functionset);
-       __delay_us(30);
-    }while(timeout<timeoutMax);
-
-    writeCommand(cmd_ClearDisplay);
-    __delay_us(30);
-    writeCommand(cmd_DisplayOn);
-    __delay_ms(2);    
+    return bComplete;
 }
 
 void writeLine(uint8_t* string,uint8_t cnt,uint8_t line){
@@ -98,8 +96,8 @@ void writeLine2(uint8_t* string,uint8_t cnt,uint8_t line){
         if(cnt == i+1){
             con.CO = 0;
         }
-        buff[i] = con.byte;
-        buff[i+1] = *(string+1);
+        buff[i*2] = con.byte;
+        buff[i*2+1] = *(string+1);
     }
     i2cWrite(AQM1602addr, buff, cnt*2, &status);
      __delay_us(30);
