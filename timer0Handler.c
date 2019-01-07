@@ -6,16 +6,18 @@
 #include "Varient.h"
 
 const uint8_t rpm_multipuler = 25; // 38ms callback to 1ms
-static uint8_t iMotorRotate1sCnt = 0;
+static uint8_t countbyTimer = 0;
 
+// @brief タイマーは38mm周期なので適当に25階毎にRPSを計算しRPMに返還する
 void TMR0_CustumInterruptHandler(void){
     CLRWDT();
-    iMotorRotate1sCnt ++;
-    if(!(iMotorRotate1sCnt < rpm_multipuler)){
-
-        iMotorRotate1sCnt = 0;
+    countbyTimer ++;
+    iMotorRotateCnt++;
+    if(countbyTimer >= rpm_multipuler){
+        
         iMotorRotate = iMotorRotateCnt * 60;
         iMotorRotateCnt = 0;
+        countbyTimer = 0;
 
     }
 }
