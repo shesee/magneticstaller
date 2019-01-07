@@ -99,20 +99,21 @@ void main(void){
     //INTERRUPT_PeripheralInterruptDisable();
 
     while (1){
-        uint8_t temp;
         //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。
         if(!FAIL_PORT){
             GetFaultState();
         }
-        //モーターがFAULTの場合はモーターを初期化する。
-        //それ以外の場合はPWM値にしたがってモータードライバのスピードを設定する。
-        if(sMotor.byte){            
-            zeroMotorParam();            
-        }else{           
+        //PWM値にしたがってモータードライバのスピードを設定する。
+        if(!sMotor.byte){                      
             SetMotorSpeed();       
         }
+        //FAULTポートがポジティブでPWM値が最低値ならモーターの再起動を行う
+        if(FAIL_PORT && (iPWMMotor == PWMMotorMin)){
+             Motor_Initialize();
+             zeroMotorParam();
+        }
         //温度をとってくる
-        temp = getTemp();
+        getTemp();
         
         //PWM デューティー比の設定
         SetPWMMorter();
