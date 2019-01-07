@@ -29,7 +29,7 @@ extern void i2cWrite(uint16_t slaveaddr, uint8_t* pData, uint8_t count, I2C_MESS
 // @param pwData    デバイスに書き込むデータ
 // @param wcount    書き込むデータ長
 // @param pData     I2Dデバイスから受信したデータ
-// @param count     受信するデータ長 際限なくデータを送ってくるデバイスがあるのでNACKで強制的に受信を終了する。
+// @param count     受信するデータ長 際限なくデータを送ってくるデバイスがあるのでStop Conditionで強制的に受信を終了する。
 // @param status    結果
 extern void i2cRead(uint16_t slaveaddr, uint8_t* pwData, uint8_t wcount, uint8_t* pData, uint8_t icount, I2C_MESSAGE_STATUS* status);
 
