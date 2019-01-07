@@ -64,10 +64,10 @@ void RE_Initialize(void){
 void SetPWMMorter(void){
     //ロータリーエンコーダーのLEDの制御
     if(iPWMMotor == PWMMotorMin){
-        RE1LED_SetLow();// 負論理
+        RE1LED_SetHigh();
         PWM2_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
-        RE1LED_SetHigh();//負論理
+        RE1LED_SetLow();
         PWM2_LoadDutyValue((uint16_t)iPWMMotor);//Set ON LED Duty to value
     };
     //TODO
@@ -76,10 +76,10 @@ void SetPWMMorter(void){
 void SetPWMHeater(void){
     //ロータリーエンコーダーのLEDの制御
     if(iPWMHeater == PWMHeaterMin){
-        RE2LED_SetLow();// 負論理
+        RE2LED_SetHigh();// 負論理
         PWM4_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
-        RE2LED_SetHigh();// 負論理
+        RE2LED_SetLow();// 負論理
         PWM4_LoadDutyValue((uint16_t)(iPWMHeater));//Set ON LED Duty to value
     };
     
