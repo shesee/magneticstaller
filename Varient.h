@@ -22,7 +22,6 @@ extern "C" {
 #define PWMHeaterMax  63 //ロータリーエンコーダー値 MAX ヒーター　
 #define PWMHeaterMin  0  //ロータリーエンコーダー値 MIN ヒーター
 
-#define SLAVE_I2C_GENERIC_RETRY_MAX     10//I2C送受信リトライ回数
 //!モーターのPWM値 8bit    
 extern volatile int16_t iPWMMotor;
 //!ヒーターのPWM値 6bit 0-64
