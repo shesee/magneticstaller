@@ -2,8 +2,11 @@
 #include "i2cGeneric.h"
 #include "Varient.h"
 
+//! I2C温度計のアドレス GNDに落としたときの値
 const uint16_t stts751addr = 0x72;
+//温度のHigh部のレジスタアドレス 8bit で温度の整数部
 const uint8_t tempHighreg = 0x00;
+//温度のLow部のレジスタアドレス 小数部　補数になっている
 const uint8_t tempLowreg  = 0x02;
 
 
