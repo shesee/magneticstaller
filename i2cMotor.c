@@ -2,11 +2,12 @@
 #include "i2cGeneric.h"
 #include "i2cMotor.h"
 
-#define drv8830addr_w 0xC0
-#define drv8830addr_r 0xC1
-
-
-volatile DRV8830Reg2 sMotor;//モーターの状態
+//!DRV8830 書き込み時のI2Cアドレス
+const uint8_t drv8830addr_w = 0xC0;
+//!DRV8830 読み込み時のI2Cアドレス
+const uint8_t drv8830addr_r = 0xC1;
+//!モーターの状態
+volatile DRV8830Reg2 sMotor;
 
 void Motor_Initialize(void){
     
