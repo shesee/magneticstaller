@@ -2,7 +2,7 @@
 #include "i2cGeneric.h"
 
 //!I2C送受信リトライ回数
-const uint8_t i2cGenericRetryMax = 10;
+static const uint8_t i2cGenericRetryMax = 10;
 
 void i2cWrite(uint16_t slaveaddr, uint8_t* pData, uint8_t count, I2C_MESSAGE_STATUS* status){
 

@@ -5,7 +5,7 @@
 #include "i2cMotor.h"
 #include "Varient.h"
 
-const uint8_t rpm_multipuler = 25; // 38ms callback to 1ms
+static const uint8_t rpm_multipuler = 25; // 38ms callback to 1ms
 static uint8_t countbyTimer = 0;
 
 // @brief タイマーは38mm周期なので適当に25階毎にRPSを計算しRPMに返還する

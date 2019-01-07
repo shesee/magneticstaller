@@ -6,7 +6,7 @@
 #include "rtEnc.h"
 #include "Varient.h"
 
-const uint8_t rePattern[] ={0,1,-1,0,-1,0,0,1,1,0,0,-1,0,-1,1,0};//ロータリエンコーダーの参照表
+static const uint8_t rePattern[] ={0,1,-1,0,-1,0,0,1,1,0,0,-1,0,-1,1,0};//ロータリエンコーダーの参照表
 static uint8_t reIndex1=0;//ロータリーエンコーダー1のインデックス値
 static uint8_t reIndex2=0;//ロータリーエンコーダー2のインデックス値
 

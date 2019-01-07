@@ -4,7 +4,7 @@
 #include "displayLCD.h"
 
 //!モーター障害時の表示文字列
-const char* mtss[] =       {" OverVoltage ",
+static const char* mtss[] =       {" OverVoltage ",
                             " LowVoltage  ",
                             " OverHeat    ",
                             " LimitPower  "
@@ -12,9 +12,9 @@ const char* mtss[] =       {" OverVoltage ",
 
                         //0123456789ABCDEF
 //1ラインバッファ1のテンプレート
-const char* line1temp =  "MTR    RPM/     ";
+static const char* line1temp =  "MTR    RPM/     ";
 //!ラインバッファ2のテンプレート
-const char* line2temp =  "HTR    C  /     ";
+static const char* line2temp =  "HTR    C  /     ";
 
 //!ライン1のバッファ
 static char line1[LINE_LENGTH];

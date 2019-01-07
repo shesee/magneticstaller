@@ -3,9 +3,9 @@
 #include "i2cMotor.h"
 
 //!DRV8830 書き込み時のI2Cアドレス
-const uint8_t drv8830addr_w = 0xC0;
+static const uint8_t drv8830addr_w = 0xC0;
 //!DRV8830 読み込み時のI2Cアドレス
-const uint8_t drv8830addr_r = 0xC1;
+static const uint8_t drv8830addr_r = 0xC1;
 //!モーターの状態
 volatile DRV8830Reg2 sMotor;
 
