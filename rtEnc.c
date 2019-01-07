@@ -17,7 +17,7 @@ int8_t readRE1(void){
 };
 //ロータリーエンコーダー2のデコード
 int8_t readRE2(void){
-    reIndex2 = ((0x3&reIndex2)<<2) | (RE2_B_GetValue()<<1) | RE2_A_GetValue();
+    reIndex2 = ((0x3&reIndex2)<<2) | (RE2_B_GetValue()<<1) | RE2_B_GetValue();
     return rePattern[reIndex2];
 };
 
@@ -64,10 +64,10 @@ void RE_Initialize(void){
 void SetPWMMorter(void){
     //ロータリーエンコーダーのLEDの制御
     if(iPWMMotor == PWMMotorMin){
-        RE1LED_SetHigh();// ON OFF LED
+        RE1LED_SetLow();// 負論理
         PWM2_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
-        RE1LED_SetLow();//OFF OFF LED
+        RE1LED_SetHigh();//負論理
         PWM2_LoadDutyValue((uint16_t)iPWMMotor);//Set ON LED Duty to value
     };
     //TODO
@@ -75,11 +75,11 @@ void SetPWMMorter(void){
 
 void SetPWMHeater(void){
     //ロータリーエンコーダーのLEDの制御
-    if(iPWMHeater == 0){
-        RE2LED_SetHigh();// ON OFF LED
+    if(iPWMHeater == PWMHeaterMin){
+        RE2LED_SetLow();// 負論理
         PWM4_LoadDutyValue(0);//Set ON LED Duty to 0
     }else{
-        RE2LED_SetLow();//OFF OFF LED
+        RE2LED_SetHigh();// 負論理
         PWM4_LoadDutyValue((uint16_t)(iPWMHeater));//Set ON LED Duty to value
     };
     
