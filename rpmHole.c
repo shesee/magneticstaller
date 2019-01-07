@@ -2,14 +2,13 @@
 #include "Varient.h"
 #include "rpmHole.h"
 
-//カスタムハンドラ　ホール素子のフォールカウント
+// @brief カスタムハンドラ　ホール素子のフォールカウント
 void INTCustumInterruptHandler(void){
     
     iMotorRotateCnt++;
     
 }
 
-//インタラプトハンドラのセット
 void Hole_Initialize(void){
     
     EXT_INT_fallingEdgeSet();
