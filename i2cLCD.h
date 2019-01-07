@@ -40,7 +40,7 @@ typedef union {
 
 // @brief LCDの初期化
 // @brief 規定のI2C LCD初期化手順を行う
-extern void I2CLCD_Initialize(void);
+extern bool I2CLCD_Initialize(void);
 
 // @brief LCD1ラインのラインの描画
 // @param string 16文字までののuint8_t 配列
