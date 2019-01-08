@@ -98,14 +98,25 @@ void main(void){
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
+    bool cPWMMotor = false;
+    bool cPWMHeater = false;
+    bool cHeaterTem = false;
+    bool cMotorRotate = false;
+    
     while (1){
+        //前回ループ時と値が変化しているかチェック
+        cPWMMotor = iPrevPWMMotor != iPWMMotor;iPrevPWMMotor = iPWMMotor;
+        cPWMHeater = iPrevPWMHeater != iPWMHeater;iPrevPWMHeater = iPWMHeater;
+        cHeaterTem = iPrevHeaterTemp != iHeaterTemp;iPrevHeaterTemp = iHeaterTemp;
+        cMotorRotate = iPrevMotorRotate != iMotorRotate;iPrevMotorRotate = iMotorRotate;
+        
         //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。
         if(!FAIL_PORT){
             GetFaultState();
-        }
-        //PWM値にしたがってモータードライバのスピードを設定する。
-        if(!sMotor.byte){                      
-            SetMotorSpeed();       
+        }else if(cPWMMotor){//PWM値にしたがってモータードライバのスピードを設定する
+            if(!sMotor.byte){                      
+                SetMotorSpeed();       
+            }
         }
         //FAULTポートがポジティブでPWM値が最低値ならモーターの再起動を行う
         if(FAIL_PORT && (iPWMMotor == PWMMotorMin)){
@@ -113,16 +124,17 @@ void main(void){
              zeroMotorParam();
         }
         //温度をとってくる
-        getTemp();
+        getTemp(); // 5V化で使えなくなっちゃったよ
         
         //PWM デューティー比の設定
         SetPWMMorter();
         SetPWMHeater();
         
         //LCD表示
-        displayLCD();
-        
-        __delay_ms(200);
+        if(cPWMMotor || cPWMHeater || cHeaterTem || cMotorRotate){ 
+            displayLCD();
+        }
+        //SLEEP();
         
     }
 }
