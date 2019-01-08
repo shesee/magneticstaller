@@ -33,7 +33,14 @@ extern volatile uint8_t iMotorRotateCnt;
 //!ローター回転数
 extern volatile uint16_t iMotorRotate; 
 
-
+//!モーターのPWM値 8bit  以前  
+extern volatile int16_t iPrevPWMMotor;
+//!ヒーターのPWM値 6bit 0-64  以前 
+extern volatile int16_t iPrevPWMHeater; 
+//!ヒーター温度  以前 
+extern volatile int8_t  iPrevHeaterTemp;
+//!ローター回転数  以前 
+extern volatile uint16_t iPrevMotorRotate; 
 
 #ifdef	__cplusplus
 }
