@@ -109,24 +109,23 @@ void main(void){
         cPWMHeater = iPrevPWMHeater != iPWMHeater;iPrevPWMHeater = iPWMHeater;
         cHeaterTem = iPrevHeaterTemp != iHeaterTemp;iPrevHeaterTemp = iHeaterTemp;
         cMotorRotate = iPrevMotorRotate != iMotorRotate;iPrevMotorRotate = iMotorRotate;
+        uint8_t fp = FAIL_PORT;
+        cFAIL_PORT = PrevFAIL_PORT != fp;PrevFAIL_PORT = fp;
         
         //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。
-        if(!FAIL_PORT){
+        if(!fp){
             GetFaultState();
-        }else if(cPWMMotor){//PWM値にしたがってモータードライバのスピードを設定する
-            if(!sMotor.byte){                      
-                SetMotorSpeed();       
-            }
-        }
-        //FAULTポートがポジティブでPWM値が最低値ならモーターの再起動を行う
-        if(FAIL_PORT && (iPWMMotor == PWMMotorMin)){
+        }else if(cPWMMotor || !sMotor.byte){//PWM値にしたがってモータードライバのスピードを設定する
+             //再起動を行うまではモーターを駆動しない                      
+             SetMotorSpeed();       
+        }else if((iPWMMotor == PWMMotorMin) && cFAIL_PORT){//FAULTポートがポジティブでPWM値が最低値ならモーターの再起動を行う
              Motor_Initialize();
              zeroMotorParam();
         }
         //温度をとってくる
         getTemp(); // 5V化で使えなくなっちゃったよ
         
-        //PWM デューティー比の設定
+        //PWM デューティー比の設定 ロータリエンコーダーの値の取得も行う
         SetPWMMorter();
         SetPWMHeater();
         
