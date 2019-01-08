@@ -59,16 +59,16 @@ void main(void){
     // initialize the device
     SYSTEM_Initialize();
     
-    //ホール素子検出の初期化
+    //ホール素子検出の初期化 INTハンドラの設定
     Hole_Initialize(); 
     
-    //Timer 0 WDT初期化 回転数計算
+    //Timer 0 WDT初期化 回転数計算 TIMR0ハンドラの設定
     tmr0Handler_Initialize();
     
-    //ロータリーエンコーダーの初期化
+    //ロータリーエンコーダーの初期化 状態変化割り込みの設定
     RE_Initialize();
     
-    //PWM デューティー比の初期設定
+    //PWM デューティー比の初期設定 PWMの初期化出力
     SetPWMMorter();
     SetPWMHeater();
     
@@ -81,8 +81,8 @@ void main(void){
     INTERRUPT_PeripheralInterruptEnable();
  
     //モーターを初期状態に
-    Motor_Initialize();
-    zeroMotorParam();
+    Motor_Initialize();//内部変数の初期化
+    zeroMotorParam();//モータードライバの初期化
     
     //温度の初期値を読みこむ
     if(!getTemp())iHeaterTemp=127;
@@ -97,11 +97,13 @@ void main(void){
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
+  
+    //状態変化変数
     bool cPWMMotor = false;
     bool cPWMHeater = false;
     bool cHeaterTem = false;
     bool cMotorRotate = false;
+    bool cFAIL_PORT = false;
     
     while (1){
         //前回ループ時と値が変化しているかチェック
@@ -112,18 +114,18 @@ void main(void){
         uint8_t fp = FAIL_PORT;
         cFAIL_PORT = PrevFAIL_PORT != fp;PrevFAIL_PORT = fp;
         
-        //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。
+        //モータードライバのFAULTピンがネガティブの場合、理由をとってくる。負論理
         if(!fp){
             GetFaultState();
-        }else if(cPWMMotor || !sMotor.byte){//PWM値にしたがってモータードライバのスピードを設定する
-             //再起動を行うまではモーターを駆動しない                      
+        }else if(cPWMMotor && !sMotor.byte){//PWM値にしたがってモータードライバのスピードを設定する
+                                            //再起動を行うまではモーターを駆動しない                      
              SetMotorSpeed();       
         }else if((iPWMMotor == PWMMotorMin) && cFAIL_PORT){//FAULTポートがポジティブでPWM値が最低値ならモーターの再起動を行う
              Motor_Initialize();
              zeroMotorParam();
         }
         //温度をとってくる
-        getTemp(); // 5V化で使えなくなっちゃったよ
+        getTemp(); // 5V化で使えなくなっちゃったよ 電源を3.3Vにするよ
         
         //PWM デューティー比の設定 ロータリエンコーダーの値の取得も行う
         SetPWMMorter();
