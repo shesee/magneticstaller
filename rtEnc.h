@@ -16,7 +16,6 @@
 extern "C" {
 #endif
 
-
 // @brief ロータリエンコーダーの割り込みの初期化
 // @brief 二つのロータリーエンコーダーのA相 B相を4つの状態変化割り込みに設定する。
 extern void RE_Initialize(void);
