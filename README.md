@@ -7,4 +7,7 @@ DRV8830 I2Cモータードライバ<br>
 I2C温度計<br>
 I2C液晶<br>
 ホールIC<br>
-を繋ぐのだ
+を繋ぐのだ<br>
+<br>
+Microchip Code Configuratorが生成したコードについては、Microchipの排他ライセンスが適応されるよ。見なかったことにしてくれ。<br>
+ライセンスを変更したよ<br>
