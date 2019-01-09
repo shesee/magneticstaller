@@ -124,7 +124,7 @@ void main(void){
              zeroMotorParam();
         }
         //温度をとってくる
-        getTemp(); // 5V化で使えなくなっちゃったよ
+        getTemp(); // 　5V化で使えなくなっちゃったよ
         
         //PWM デューティー比の設定
         SetPWMMorter();
