@@ -40,7 +40,7 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
-
+#include <stdint.h>
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/i2c.h"
 #include "Varient.h"
