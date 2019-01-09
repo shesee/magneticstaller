@@ -40,7 +40,10 @@ extern volatile int16_t iPrevPWMHeater;
 //!ヒーター温度  以前 
 extern volatile int8_t  iPrevHeaterTemp;
 //!ローター回転数  以前 
-extern volatile uint16_t iPrevMotorRotate; 
+extern volatile uint16_t iPrevMotorRotate;
+
+//!モータードライバーFAULTポートの状態
+extern volatile int8_t  PrevFAIL_PORT;
 
 #ifdef	__cplusplus
 }

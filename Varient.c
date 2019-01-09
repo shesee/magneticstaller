@@ -14,4 +14,6 @@ volatile int16_t iPrevPWMHeater = 0;
 
 volatile int8_t  iPrevHeaterTemp = 0;
 
-volatile uint16_t iPrevMotorRotate = 0; 
+volatile uint16_t iPrevMotorRotate = 0;
+
+volatile int8_t  PrevFAIL_PORT = 0;
