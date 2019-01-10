@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-// @def ラインの長さ
+// @def LCDのラインの長さ
 #define LINE_LENGTH 16    
     
 // @enum モータードライバの障害別の列挙型
